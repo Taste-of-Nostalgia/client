@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: white;
   color: rgba(0, 0, 0, 0.87);
   background-color: #F5F1ED;
 
@@ -55,7 +55,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #472121;
+    color: #ffffff;
     background-color: #ffffff;
   }
   a:hover {
@@ -64,4 +64,99 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+
+
+.submitButton {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: white; /* Change the text color */
+  background-color: #000000; /* Change the background color */
+  cursor: pointer;
+  transition: border-color 0.25s;
+  display: block;
+  text-align: center;
+  margin: 20px auto 0; /* Adjust the margin-top property */
+
+}
+
+.submitButton:hover {
+  border-color: #a12e2e;
+}
+
+.submitButton:focus,
+.submitButton:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+.subheader-input {
+  margin-left: 15%;
+}
+
+.header-input{
+  margin-left: 15%; 
+}
+
+.input-bar {
+  display: flex; /* Use flex display to align label and input horizontally */
+  align-items: center; /* Align items vertically in the center */
+  height: 40px; /* Adjust the height as needed */
+  width: 30%; /* Adjust the width as needed */
+  margin-left: 15%; /* Adjust the margin-left as needed */
+  background-color: white;
+  color: rgb(243, 243, 243); /* Change the text color to black */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  padding: 0 10px; /* Add padding for better spacing */
+}
+
+.input-bar input {
+  flex: 1; /* Allow the input to take up the remaining space in the flex container */
+  border: white; /* Remove the input border */
+  outline: none; /* Remove the input outline */
+  height: 100%; /* Set the input height to 100% */
+}
+
+.stars {
+  margin-left: 15%;
+}
+
+.upload {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+.browseButton {
+  width: 70%; 
+  height: 180px;
+  background-color: #c4c4c4; 
+  color: white; 
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
+  font-size: 16px; 
+  transition: background-color 0.3s; 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.browseButton:hover {
+  background-color: #929292; 
+}
+
+#fileInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
 }

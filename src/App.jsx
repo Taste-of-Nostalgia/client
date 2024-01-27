@@ -10,14 +10,14 @@ import Input from './components/Input'
 import Scrapbook from './components/Scrapbook'
 import Recommendation from './components/Recommendation'
 import {Route, Routes} from "react-router-dom"
-import InputScreen from './inputscreen'
+import InputScreen from './components/inputscreen'
+import FlipBook from './components/Scrap'; 
 
 function App() {
   
   return (
     <>
-      <Navbar/>
-      <InputScreen />
+      <FlipBook/>
     </>
   ) 
 }
