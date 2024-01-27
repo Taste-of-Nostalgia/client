@@ -51,3 +51,10 @@ nav a {
     background-color: #721e1e;
 }
 
+.custom-rectangle {
+    width: 400px;
+    height: 300px;
+    background-color: #3490dc;
+    border-radius: 1rem; /* Rounded corners */
+    padding: 1.5rem;
+  }

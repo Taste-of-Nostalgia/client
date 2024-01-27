@@ -2,33 +2,65 @@ import useForm from "./UseForm";
 
 
 export default function Signup (){
-    const FORM_ENDPOINT = "https://webhook.site/899b714b-b0db-40d0-9c44-69d4b44841df"; // TODO - update to the correct endpoint
+    /*const [name, setName] = useState(""); // State user name
+    const [email, setEmail] = useState(""); // State for email
+    const [password, setPassword] = useState(""); // State for password
+  
+    const handleSubmitSignup = async (e) => {
+      e.preventDefault(); // prevents from reloading
+      if (name === "") return // prevents from empty string name
+      if (email === "") return // prevents from empty string email
+      if (password === "") return // prevents from empty string password  
 
-    const additionalData = {
-        sent: new Date().toISOString(),
-      };
+      try {
+        // Create FormData object to send multipart form data
+        const formData = new FormData();
+        formData.append("foodName", newFood); // Append the foodName to the FormData object
+        formData.append("rating", rating); // Append the rating to the FormData object
+        formData.append("file", file); // Append the file to the FormData object
     
-      const { handleSubmit, status, message } = useForm({
-        additionalData,
-      });
+        // Make a POST request to the backend API
+        const response = await fetch('https://webhook.site/bdb6a583-c05d-4466-a9f9-f9389a2f111c', {
+          method: 'POST', // HTTP POST method
+          body: formData // Attach the FormData object as the body of the request
+        });
     
-      if (status === "success") {
-        return (
-          <>
-            <div className="text-2xl">Thank you!</div>
-            <div className="text-md">{message}</div>
-          </>
-        );
+        // Check if the response status is ok)
+        if (response.ok) {
+          setNewFood("");
+          setRating(0);
+          setFile(null);
+          alert('Food submitted successfully!'); // Show a success message
+        } else {
+          // Throw an error if the response status is not ok
+          throw new Error('Failed to submit food.');
+        }
+      } catch (error) {
+        // Catch any errors that occur during the request
+        console.error('Error submitting food:', error); 
+        alert('Failed to submit food. Please try again later.'); 
       }
-    
-      if (status === "error") {
-        return (
-          <>
-            <div className="text-2xl">Something bad happened!</div>
-            <div className="text-md">{message}</div>
-          </>
-        );
+    }
+  
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault(); // Prevent the default behavior of the Enter key
       }
+    };
+  
+    const handleFileChange = (e) => {
+      setFile(e.target.files[0]); // Set the file state when the user selects a file
+    }
+  
+    const ColoredLine = ({ color }) => (
+      <hr
+          style={{
+              color: color,
+              backgroundColor: color,
+              height: 1
+          }}
+      />
+    )*/
 
     return (
             <>
@@ -41,7 +73,7 @@ export default function Signup (){
                 </div>
         
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                  <form className="space-y-6" action={FORM_ENDPOINT} onSubmit={handleSubmit} method="POST">
+                  <form className="space-y-6" action='#' /*onSubmit={handleSubmit}*/ method="POST">
                   <div>
                   <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900 text-left">
                     Full Name
