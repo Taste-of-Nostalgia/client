@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import './output.css'
 import Navbar from './components/Navbar'
 import React from 'react'
 import Home from './components/Home'
@@ -17,7 +18,18 @@ function App() {
   
   return (
     <>
-      <FlipBook/>
+      <Navbar />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/signup" element={<Signup/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/input" element={<Input/>} />
+          <Route path="/scrapbook" element={<Scrapbook/>} />
+          <Route path="/recommendation" element={<Recommendation/>} />
+        </Routes>
+      </div>
     </>
   ) 
 }
