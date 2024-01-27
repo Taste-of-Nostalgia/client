@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import './App.css'
+import { InputScreen } from './inputscreen'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  return (
+    <>
+      <InputScreen/>
+    </>
+  )
 }
 
 export default App
