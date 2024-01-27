@@ -65,21 +65,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #472121;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #a12e2e;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
 /*
 ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
 */
