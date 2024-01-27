@@ -13,10 +13,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  font-weight: 500;
+  color: #7a2727;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #ffffff;
+}
+
 body {
   margin: 0;
-  display: flex;
-  place-items: top;
+  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -43,4 +51,17 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #472121;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #a12e2e;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
 }

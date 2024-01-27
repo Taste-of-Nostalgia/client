@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
-import './inputscreen.css'
+import './index.css'
+import Navbar from "./components/Navbar";
 
-export function InputScreen () {
+export default function InputScreen () {
   
   const [newFood, setNewFood] = useState(""); // State for food name
   const [rating, setRating] = useState(0); // State for rating
@@ -21,7 +22,7 @@ export function InputScreen () {
       formData.append("file", file); // Append the file to the FormData object
   
       // Make a POST request to the backend API
-      const response = await fetch('/api/submit-food', {
+      const response = await fetch('https://webhook.site/bdb6a583-c05d-4466-a9f9-f9389a2f111c', {
         method: 'POST', // HTTP POST method
         body: formData // Attach the FormData object as the body of the request
       });
@@ -44,6 +45,16 @@ export function InputScreen () {
     }
   }
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent the default behavior of the Enter key
+    }
+  };
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]); // Set the file state when the user selects a file
+  }
+
   const ColoredLine = ({ color }) => (
     <hr
         style={{
@@ -52,10 +63,14 @@ export function InputScreen () {
             height: 1
         }}
     />
-);
+  )
+
+
+
 
   return (
     <>
+      
       <h1> Input your Food </h1>
       <ColoredLine color={"white"} />
 
@@ -66,6 +81,7 @@ export function InputScreen () {
           <input 
             value={newFood} 
             onChange={e => setNewFood(e.target.value)}
+            onKeyDown={handleKeyDown}
             type="text"
             id="task"
           />
@@ -75,7 +91,7 @@ export function InputScreen () {
       
       <div>
         <h2> Rating: </h2>
-        <Rating style={{ maxWidth: 200 }} value={rating} onChange={setRating} onSubmit={handleSumbitStars}/>
+        <Rating style={{ maxWidth: 200 }} value={rating} onChange={setRating}/>
       </div>
 
       <form>
@@ -83,14 +99,14 @@ export function InputScreen () {
         <div className="input-bar">
             <label htmlFor="task"></label>
             <input 
-              value={newFood} 
-              onChange={e => setNewFood(e.target.value)}
+              
+              onChange={handleFileChange}
               type="file"
               id="task"
             />
           </div>
       </form>
-      <button > Submit </button>
+      <button className="submitButton" onClick={handleSumbitFood}> Submit </button>
     </>
     
   )
