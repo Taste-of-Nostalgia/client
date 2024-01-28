@@ -8,7 +8,7 @@
     "build": "vite build --outDir ./build/",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "predeploy": "npm run build && ls && echo tasteofnostalgia.tech > ./build/CNAME",
+    "predeploy": "npm run build && ls && echo foodtastesnostalgicwith.tech > ./build/CNAME",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
