@@ -14,7 +14,7 @@ export default function Recommendation() {
       return;
     }
     getAccessTokenSilently().then((token) => {
-      axios.get('https://api.tasteofnostalgia.tech/recommendations', {
+      axios.get('https://api.foodtastesnostalgicwith.tech/recommendations', {
         headers: {
           Authorization: `Bearer ${token}`
         }

@@ -30,7 +30,7 @@ export default function InputScreen() {
       formData.append("file", file);
 
 
-      const response = await fetch('https://api.tasteofnostalgia.tech/input_food', {
+      const response = await fetch('https://api.foodtastesnostalgicwith.tech/input_food', {
         method: 'POST',
         body: formData,
         headers: {
