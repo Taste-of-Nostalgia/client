@@ -1,6 +1,7 @@
 import { useState } from "react"
 import '../assets/style.css'
 
+
 export default function Scrapbook({ numOfPapers }) {
     let maxLocation = numOfPapers + 1;
 
@@ -95,7 +96,7 @@ export default function Scrapbook({ numOfPapers }) {
 
     return (
         <>
-            <button id="prev-btn" onClick={goPrevPage}>
+            <button className="scrapbut" id="prev-btn" onClick={goPrevPage}>
                 <i className="fas fa-arrow-circle-left"></i>
             </button>
 
@@ -123,43 +124,63 @@ export default function Scrapbook({ numOfPapers }) {
             <div id="book" class="book">
                 <div id="p1" class="paper">
                     <div class="front">
+                        <img src="/img/burger.jpg" alt="Burger" 
+                        style={{ maxWidth: '300px', maxHeight: '300px', paddingLeft: '50px', paddingBottom: '0px'}}/>
+
                         <div id="f1" class="front-content">
-                            <h1>Front 1</h1>
+                            <h2 className="pics">Burger</h2>
                         </div>
                     </div>
                     <div class="back">
+                        <img src="/img/ramen.jpg" alt="ramen" 
+                            style={{ maxWidth: '300px', maxHeight: '250px', paddingLeft: '55px', paddingBottom: '0px'}}/>
+                            
                         <div id="b1" class="back-content">
-                            <h1>Back 1</h1>
+                            <h2 className="pics">Ramen</h2>
                         </div>
                     </div>
                 </div>
+
                 <div id="p2" class="paper">
                     <div class="front">
+                        <img src="/img/mc.jpg" alt="mc" 
+                        style={{ maxWidth: '300px', maxHeight: '300px', paddingLeft: '50px', paddingBottom: '0px'}}/>
+                        
                         <div id="f2" class="front-content">
-                            <h1>Front 2</h1>
+                            <h2 className="pics">Mac And Cheese</h2>
                         </div>
                     </div>
+
                     <div class="back">
+                        <img src="/img/peanuts.jpg" alt="peanuts" 
+                            style={{ maxWidth: '300px', maxHeight: '300px', paddingLeft: '50px', paddingBottom: '0px'}}/>
                         <div id="b2" class="back-content">
-                            <h1>Back 2</h1>
+                           <h2 className="pics">Jeffery's Famous Peanuts</h2>
                         </div>
                     </div>
                 </div>
+
                 <div id="p3" class="paper">
                     <div class="front">
+                        <img src="/img/pizza.jpg" alt="pizza" 
+                        style={{ maxWidth: '300px', maxHeight: '300px', paddingLeft: '50px', paddingBottom: '0px'}}/>
+                        
                         <div id="f3" class="front-content">
-                            <h1>Front 3</h1>
+                            <h2 className="pics">Pizza</h2>
                         </div>
                     </div>
+                    
                     <div class="back">
+                        <img src="/img/steak.jpg" alt="steak" 
+                            style={{ maxWidth: '300px', maxHeight: '300px' , paddingLeft: '50px', paddingBottom: '0px'}}/>
                         <div id="b3" class="back-content">
-                            <h1>Back 3</h1>
+                            <h2 className="pics">Steak</h2>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <button id="next-btn" onClick={goNextPage}>
+            <button className="scrapbut" id="next-btn" onClick={goNextPage}>
                 <i className="fas fa-arrow-circle-right"></i>
             </button>
         </>
