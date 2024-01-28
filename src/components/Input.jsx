@@ -1,51 +1,62 @@
 import { useState } from "react";
 import { Rating } from '@smastrom/react-rating'
+import { useAuth0 } from "@auth0/auth0-react";
 import '@smastrom/react-rating/style.css'
 
-export default function InputScreen () {
-  
-  const [newFood, setNewFood] = useState(""); 
-  const [rating, setRating] = useState(0); 
-  const [file, setFile] = useState(null); 
-  const [isUploaded, setIsUploaded] = useState(false); 
-  
+export default function InputScreen() {
+
+  const [newFood, setNewFood] = useState("");
+  const [rating, setRating] = useState(0);
+  const [file, setFile] = useState(null);
+  const [isUploaded, setIsUploaded] = useState(false);
+
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
 
   const handleSumbitFood = async (e) => {
-    e.preventDefault(); 
-    if (newFood === "") return 
+    e.preventDefault();
+
+    if (!isAuthenticated) {
+      console.log("User is not authenticated");
+      return;
+    }
+
+    if (newFood === "") return
 
     try {
-      
+
       const formData = new FormData();
-      formData.append("foodName", newFood); 
-      formData.append("rating", rating); 
-      formData.append("file", file); 
-  
-      
-      const response = await fetch('https://webhook.site/bdb6a583-c05d-4466-a9f9-f9389a2f111c', {
-        method: 'POST', 
-        body: formData 
+      formData.append("foodName", newFood);
+      formData.append("rating", rating);
+      formData.append("file", file);
+
+
+      const response = await fetch('https://api.tasteofnostalgia.tech/input_food', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Authorization: `Bearer ${await getAccessTokenSilently()}`
+        }
       });
 
       if (response.ok) {
-        
+
         setNewFood("");
         setRating(0);
         setFile(null);
-        setIsUploaded(false); 
-        alert('Food submitted successfully!'); 
+        setIsUploaded(false);
+        alert('Food submitted successfully!');
       } else {
         throw new Error('Failed to submit food.');
       }
     } catch (error) {
-      console.error('Error submitting food:', error); 
-      alert('Failed to submit food. Please try again later.'); 
+      console.error('Error submitting food:', error);
+      alert('Failed to submit food. Please try again later.');
     }
   }
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      e.preventDefault(); 
+      e.preventDefault();
     }
   };
 
@@ -56,13 +67,13 @@ export default function InputScreen () {
 
   const ColoredLine = ({ color }) => (
     <hr
-        style={{
-            color: color,
-            backgroundColor: color,
-            height: 1,
-            width: '70%', 
-            marginleft: '5%'
-        }}
+      style={{
+        color: color,
+        backgroundColor: color,
+        height: 1,
+        width: '70%',
+        marginleft: '5%'
+      }}
     />
   )
 
@@ -74,12 +85,12 @@ export default function InputScreen () {
       <h1 className="header-input"> Input your Food </h1>
       <ColoredLine color={"black"} />
 
-      <form className="Food-name"> 
+      <form className="Food-name">
         <h2 className="subheader-input"> Food Name</h2>
         <div className="input-bar">
           <label htmlFor="food"></label>
-          <input 
-            value={newFood} 
+          <input
+            value={newFood}
             onChange={e => setNewFood(e.target.value)}
             onKeyDown={handleKeyDown}
             type="text"
@@ -88,29 +99,29 @@ export default function InputScreen () {
         </div>
       </form>
 
-      
+
       <div>
         <h2 className="subheader-input"> Rating: </h2>
-        <div className="stars"><Rating style={{ maxWidth: 300 }} value={rating} onChange={setRating}/></div>
+        <div className="stars"><Rating style={{ maxWidth: 300 }} value={rating} onChange={setRating} /></div>
       </div>
 
       <form>
         <h2 className="subheader-input"> Photo Upload </h2>
-            <div className="upload">
-            <label htmlFor="fileInput" className="browseButton">
-                {isUploaded ? "Uploaded!" : "Photo Upload"}
-            </label>
-            <input
-                id="fileInput"
-                onChange={handleFileChange}
-                type="file"
-                style={{ display: "none" }}
-            />
-            </div>
+        <div className="upload">
+          <label htmlFor="fileInput" className="browseButton">
+            {isUploaded ? "Uploaded!" : "Photo Upload"}
+          </label>
+          <input
+            id="fileInput"
+            onChange={handleFileChange}
+            type="file"
+            style={{ display: "none" }}
+          />
+        </div>
       </form>
       <button className="submitButton" onClick={handleSumbitFood}> Submit </button>
     </>
-    
+
   )
 }
 
