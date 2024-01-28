@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-import './output.css'
 import Navbar from './components/Navbar'
 import React from 'react'
 import Home from './components/Home'
@@ -11,8 +10,6 @@ import Input from './components/Input'
 import Scrapbook from './components/Scrapbook'
 import Recommendation from './components/Recommendation'
 import {Route, Routes} from "react-router-dom"
-import InputScreen from './components/inputscreen'
-import FlipBook from './components/Scrap'; 
 
 function App() {
   
@@ -26,7 +23,7 @@ function App() {
           <Route path="/signup" element={<Signup/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/input" element={<Input/>} />
-          <Route path="/scrapbook" element={<Scrapbook/>} />
+          <Route path="/scrapbook" element={<Scrapbook numOfPapers={10}/>} />
           <Route path="/recommendation" element={<Recommendation/>} />
         </Routes>
       </div>

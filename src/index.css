@@ -10,7 +10,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: white;
+  color-scheme: light;
   color: rgba(0, 0, 0, 0.87);
   background-color: #F5F1ED;
 
@@ -168,6 +168,6 @@ button:focus-visible {
   opacity: 0;
   cursor: pointer;
 }
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */

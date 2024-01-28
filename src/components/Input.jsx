@@ -2,42 +2,42 @@ import { useState } from "react";
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 
-export default function Input () {
+export default function InputScreen () {
   
-  const [newFood, setNewFood] = useState(""); // State for food name
-  const [rating, setRating] = useState(0); // State for rating
-  const [file, setFile] = useState(null); // State for file
+  const [newFood, setNewFood] = useState(""); 
+  const [rating, setRating] = useState(0); 
+  const [file, setFile] = useState(null); 
+  const [isUploaded, setIsUploaded] = useState(false); 
+  
 
-  const handleSubmitFood = async (e) => {
-    e.preventDefault(); // prevents from reloading
-    if (newFood === "") return // prevents from empty string task
+  const handleSumbitFood = async (e) => {
+    e.preventDefault(); 
+    if (newFood === "") return 
 
     try {
-      // Create FormData object to send multipart form data
+      
       const formData = new FormData();
-      formData.append("foodName", newFood); // Append the foodName to the FormData object
-      formData.append("rating", rating); // Append the rating to the FormData object
-      formData.append("file", file); // Append the file to the FormData object
+      formData.append("foodName", newFood); 
+      formData.append("rating", rating); 
+      formData.append("file", file); 
   
-      // Make a POST request to the backend API
+      
       const response = await fetch('https://webhook.site/bdb6a583-c05d-4466-a9f9-f9389a2f111c', {
-        method: 'POST', // HTTP POST method
-        body: formData // Attach the FormData object as the body of the request
+        method: 'POST', 
+        body: formData 
       });
-  
-      // Check if the response status is ok)
+
       if (response.ok) {
         
         setNewFood("");
         setRating(0);
         setFile(null);
-        alert('Food submitted successfully!'); // Show a success message
+        setIsUploaded(false); 
+        alert('Food submitted successfully!'); 
       } else {
-        // Throw an error if the response status is not ok
         throw new Error('Failed to submit food.');
       }
     } catch (error) {
-      // Catch any errors that occur during the request
       console.error('Error submitting food:', error); 
       alert('Failed to submit food. Please try again later.'); 
     }
@@ -45,12 +45,13 @@ export default function Input () {
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      e.preventDefault(); // Prevent the default behavior of the Enter key
+      e.preventDefault(); 
     }
   };
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]); // Set the file state when the user selects a file
+    setFile(e.target.files[0]);
+    setIsUploaded(true);
   }
 
   const ColoredLine = ({ color }) => (
@@ -58,7 +59,9 @@ export default function Input () {
         style={{
             color: color,
             backgroundColor: color,
-            height: 1
+            height: 1,
+            width: '70%', 
+            marginleft: '5%'
         }}
     />
   )
@@ -68,43 +71,44 @@ export default function Input () {
 
   return (
     <>
-      
-      <h1> Input your Food </h1>
-      <ColoredLine color={"white"} />
+      <h1 className="header-input"> Input your Food </h1>
+      <ColoredLine color={"black"} />
 
       <form className="Food-name"> 
-        <h2> Food Name</h2>
+        <h2 className="subheader-input"> Food Name</h2>
         <div className="input-bar">
-          <label htmlFor="task"></label>
+          <label htmlFor="food"></label>
           <input 
             value={newFood} 
             onChange={e => setNewFood(e.target.value)}
             onKeyDown={handleKeyDown}
             type="text"
-            id="task"
+            id="food"
           />
         </div>
       </form>
 
       
       <div>
-        <h2> Rating: </h2>
-        <Rating style={{ maxWidth: 200 }} value={rating} onChange={setRating}/>
+        <h2 className="subheader-input"> Rating: </h2>
+        <div className="stars"><Rating style={{ maxWidth: 300 }} value={rating} onChange={setRating}/></div>
       </div>
 
       <form>
-        <h2> Input Food </h2>
-        <div className="input-bar">
-            <label htmlFor="task"></label>
-            <input 
-              
-              onChange={handleFileChange}
-              type="file"
-              id="task"
+        <h2 className="subheader-input"> Photo Upload </h2>
+            <div className="upload">
+            <label htmlFor="fileInput" className="browseButton">
+                {isUploaded ? "Uploaded!" : "Photo Upload"}
+            </label>
+            <input
+                id="fileInput"
+                onChange={handleFileChange}
+                type="file"
+                style={{ display: "none" }}
             />
-          </div>
+            </div>
       </form>
-      <button className="submitButton" onClick={handleSubmitFood}> Submit </button>
+      <button className="submitButton" onClick={handleSumbitFood}> Submit </button>
     </>
     
   )

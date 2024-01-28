@@ -2,6 +2,7 @@
 export default function Login (){
     return (
         <>
+        <link rel="stylesheet" href="/output.css" />
         <div class="rounded-lg bg-white p-4 mx-auto w-1/2">
           <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">

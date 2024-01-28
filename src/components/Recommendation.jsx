@@ -2,7 +2,9 @@ import Food from '../assets/images/food.jpg';
 
 export default function Recommendation() {
   return (
-    <div className="flex items-center justify-center h-screen">
+    <>
+      <link rel="stylesheet" href="/output.css" />
+      <div className="flex items-center justify-center h-screen">
       <div className="bg-red-500 rounded-xl p-8 w-3/4 h-4/5" style={{ height: '95%' }}>
         <div className="bg-white rounded-xl p-8 w-full h-full flex items-center justify-center">
           {/* Left Side */}
@@ -69,5 +71,7 @@ export default function Recommendation() {
               qui officia deserunt mollit anim id est laborum.</p>
         </div>
 </div></div></div>
+    </>
+   
   );
 }
