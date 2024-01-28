@@ -5,15 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --outDir ./build/",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build && echo tasteofnostalgia.tech > build/CNAME",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.4",
     "@smastrom/react-rating": "^1.4.0",
     "@tailwindcss/forms": "^0.5.7",
     "axios": "^1.6.7",
+    "gh-pages": "^6.1.1",
     "jquery": "^3.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
