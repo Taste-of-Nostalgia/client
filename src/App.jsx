@@ -9,10 +9,12 @@ import Login from './components/Login'
 import Input from './components/Input'
 import Scrapbook from './components/Scrapbook'
 import Recommendation from './components/Recommendation'
-import {Route, Routes} from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
+import InputScreen from './components/inputscreen'
+import FlipBook from './components/Scrap';
 
 function App() {
-  
+
   return (
     <>
       <Navbar />
@@ -23,12 +25,12 @@ function App() {
           <Route path="/signup" element={<Signup/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/input" element={<Input/>} />
-          <Route path="/scrapbook" element={<Scrapbook numOfPapers={10}/>} />
+          <Route path="/scrapbook" element={<Scrapbook numOfPapers={3}/>} />
           <Route path="/recommendation" element={<Recommendation/>} />
         </Routes>
       </div>
     </>
-  ) 
+  )
 }
 
 export default App
