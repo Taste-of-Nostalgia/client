@@ -10,8 +10,6 @@ import Input from './components/Input'
 import Scrapbook from './components/Scrapbook'
 import Recommendation from './components/Recommendation'
 import { Route, Routes } from "react-router-dom"
-import InputScreen from './components/inputscreen'
-import FlipBook from './components/Scrap';
 
 function App() {
 
