@@ -4,11 +4,12 @@
 
 body {
     margin: 0;
-    
+    background-color: #F5F1ED !important;
 }
 
 .container {
     margin: 1rem;
+    
     /* text-align: center; */
 }
 
@@ -20,6 +21,7 @@ body {
     align-items: stretch;
     gap: 2rem;
     padding: 0 1rem;
+    font-size: large;
 }
 
 .site-title{
@@ -48,7 +50,7 @@ nav a {
 }
 
 .nav li:hover {
-    background-color: #721e1e;
+    background-color: #ffffff;
 }
 
 .custom-rectangle {
@@ -58,3 +60,42 @@ nav a {
     border-radius: 1rem; /* Rounded corners */
     padding: 1.5rem;
   }
+
+  .carousel-image {
+    height: 70vh; /* Adjust the height to your desired value */
+    object-fit: cover; /* This ensures the image covers the entire container */
+  }
+
+  .container {
+    background-color: #B64C4C;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-radius: 5px;
+  }
+
+  .container-white {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #fdcaca;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-radius: 15px; /* Adjust the value to change the roundness */
+  }
+
+  .title-header {
+    color:#000000;
+    text-align: center;
+    margin-top: 1%;
+    font-size: 50px;
+  }
+
+  .title-p {
+    color:#000000;
+    margin-left: 3vh;
+    margin-right: 3vh;
+    margin-top: 2vh;
+    font-size: 24px;
+  }
+
+  

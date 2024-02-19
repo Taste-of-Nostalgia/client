@@ -1,0 +1,49 @@
+.about-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1; /* Allow the steps section to grow and fill the remaining space */
+}
+
+.step {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.step img {
+    flex: 1; /* Make the image fill the available space vertically */
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.step h2 {
+    color: #333;
+}
+
+.step p {
+    color: #666;
+}
