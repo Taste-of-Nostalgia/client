@@ -84,18 +84,19 @@ nav a {
   }
 
   .title-header {
-    color:#000000;
+    color:#ffffff;
     text-align: center;
     margin-top: 1%;
     font-size: 50px;
   }
 
   .title-p {
-    color:#000000;
+    color:#ffffff;
     margin-left: 3vh;
     margin-right: 3vh;
     margin-top: 2vh;
-    font-size: 24px;
+    font-size: 22px;
+    text-align: left;
   }
 
   

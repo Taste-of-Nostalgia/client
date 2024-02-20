@@ -9,12 +9,19 @@
     height: 100vh; /* Set the height to 100% of the viewport height */
 }
 
-h1 {
-    color: #333;
-}
+.abt-title-header {
+    color:#ffffff;
+    text-align: center;
+    margin-top: 1%;
+    font-size: 50px;
+    margin-bottom: 1%;
+    text-align: center;
+  }
 
 p {
-    color: #666;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
 }
 
 .steps {
@@ -23,15 +30,20 @@ p {
     flex-grow: 1; /* Allow the steps section to grow and fill the remaining space */
 }
 
+.row {
+    display: flex;
+}
+
 .step {
     flex: 1;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    text-align: center;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 .step img {
@@ -45,5 +57,5 @@ p {
 }
 
 .step p {
-    color: #666;
+    color: #000000;
 }

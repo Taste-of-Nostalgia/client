@@ -83,7 +83,7 @@ export default function Home() {
         </Carousel.Item>
         </Carousel>
     
-    <div className="container-white">
+
     <h1 className="title-header"><b>Welcome!</b></h1>
     <p className="title-p">
 Welcome to Taste of Nostalgia – your passport to the flavors of yesterday, powered by the latest in AI technology!<br/><br/>
@@ -93,7 +93,6 @@ Embark on a delicious journey through time as our app taps into the depths of yo
 With our intuitive interface and advanced algorithms, rediscover those cherished flavors with just a swipe and a tap. Whether you're craving the warmth of homemade soup on a rainy day or the sweetness of a childhood dessert, let Taste of Nostalgia guide you back to the tastes that shaped your happiest moments.<br/><br/>
 
 Join us as we blend the magic of nostalgia with the power of AI, creating a culinary experience that's as unforgettable as it is delicious. Welcome to Taste of Nostalgia – where every bite is a trip down memory lane.</p>
-</div>
     </div>
         </>
     )
