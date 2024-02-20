@@ -12,15 +12,17 @@ export default function Navbar() {
             <Link to="/" className="site-title"><img src={logo}></img></Link>
             <ul>
                 <CustomLink to="/about">About</CustomLink>
-                <CustomLink to="/input">Input</CustomLink>
-                <CustomLink to="/scrapbook">Scrapbook</CustomLink>
-                <CustomLink to="/recommendation">Recommendation</CustomLink>
                 {isAuthenticated ?
-                    <CustomRegularLink>
-                        <a onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-                            Logout
-                        </a>
-                    </CustomRegularLink>
+                    <>
+                        <CustomLink to="/input">Input</CustomLink>
+                        <CustomLink to="/scrapbook">Scrapbook</CustomLink>
+                        <CustomLink to="/recommendation">Recommendation</CustomLink>
+                        <CustomRegularLink>
+                            <a onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                                Logout
+                            </a>
+                        </CustomRegularLink>
+                    </>
                     :
                     <CustomRegularLink><a onClick={() => {
                         loginWithRedirect();
